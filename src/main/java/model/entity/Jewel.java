@@ -102,7 +102,7 @@ public class Jewel {
 
     @Override
     public String toString() {
-        return String.format("Jewel = { weight: %.3f, price: %.3f, transparency: %.3f, name: %s, color: %s",
+        return String.format("Jewel = { weight: %.3f, price: %.3f, transparency: %.3f, name: %s, color: %s\n",
                 weight, price, transparency, name, color);
     }
 }
