@@ -60,8 +60,6 @@ public class NecklaceUtilTest {
     public void getJewelsTransparencyRangeTest() {
         List<Jewel> actual = NecklaceUtil.getJewelsTransparencyRange(necklace, 4d, 7d);
 
-        System.out.println(actual);
-
         Assert.assertEquals(expectedFilteredJewels, actual);
     }
 }
