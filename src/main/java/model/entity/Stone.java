@@ -13,35 +13,16 @@ public abstract class Stone {
     protected double weight;
     protected String color;
 
-    public abstract static class Builder<T extends Builder>  {
-        protected double weight;
-        protected double price;
-        protected String name = "";
-        protected String color = "";
-
-
-        public T weight(double weight) {
-            this.weight = weight;
-            return (T) this;
-        }
-
-        public T price(double price) {
-            this.price = price;
-            return (T) this;
-        }
-
-        public T name(String name) {
-            this.name = name;
-            return (T) this;
-        }
-
-        public T color(String color) {
-            this.color = color;
-            return (T) this;
-        }
-
-        public abstract PreciousStone build();
+    public Stone() {
     }
+
+    protected Stone(Builder builder) {
+        this.weight = builder.weight;
+        this.price = builder.price;
+        this.name = builder.name;
+        this.color = builder.color;
+    }
+
     public String getName() {
         return name;
     }
@@ -72,5 +53,35 @@ public abstract class Stone {
 
     public void setWeight(double weight) {
         this.weight = weight;
+    }
+
+    public abstract static class Builder<T extends Builder> {
+        protected double weight;
+        protected double price;
+        protected String name = "";
+        protected String color = "";
+
+
+        public T weight(double weight) {
+            this.weight = weight;
+            return (T) this;
+        }
+
+        public T price(double price) {
+            this.price = price;
+            return (T) this;
+        }
+
+        public T name(String name) {
+            this.name = name;
+            return (T) this;
+        }
+
+        public T color(String color) {
+            this.color = color;
+            return (T) this;
+        }
+
+        public abstract Stone build();
     }
 }
