@@ -1,20 +1,17 @@
 package model.entity;
 
 /**
- * Jewel
+ * PreciousStone
  * created on 29.11.2017
  *
  * @author Nikita Zabaykin vladlihovid@gmail.com
  * @version 1.0
  */
-public class Pre implements JewelNecklace{
-    private double weight;
-    private double price;
+public class PreciousStone extends Stone implements StoneNecklace {
     private double transparency;
-    private String name;
-    private String color;
 
-    public Pre(double weight, double price, double transparency, String name, String color) {
+    public PreciousStone(double weight, double price, double transparency, String name, String color) {
+        super();
         this.weight = weight;
         this.price = price;
         this.name = name;
@@ -22,7 +19,21 @@ public class Pre implements JewelNecklace{
         this.transparency = transparency;
     }
 
-    private Pre(Builder builder) {
+    public static class Builder extends Stone.Builder<Builder> {
+        private double transparency;
+
+        public Builder transparency(double transparency) {
+            this.transparency = transparency;
+            return this;
+        }
+
+        @Override
+        public PreciousStone build() {
+            return new PreciousStone(this);
+        }
+    }
+
+    private PreciousStone(Builder builder) {
         this.weight = builder.weight;
         this.price = builder.price;
         this.name = builder.name;
@@ -30,67 +41,6 @@ public class Pre implements JewelNecklace{
         this.transparency = builder.transparency;
     }
 
-    public static class Builder {
-        private double weight;
-        private double price;
-        private double transparency;
-        private String name = "";
-        private String color = "";
-
-
-        public Builder(double weight, double price, double transparency) {
-            this.weight = weight;
-            this.price = price;
-            this.transparency = transparency;
-        }
-
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-        public Builder color(String color) {
-            this.color = color;
-            return this;
-        }
-
-        public Pre build() {
-            return new Pre(this);
-        }
-    }
-
-    public double getWeight() {
-
-        return weight;
-    }
-
-    public void setWeight(double weight) {
-        this.weight = weight;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
 
     public double getTransparency() {
         return transparency;
@@ -102,7 +52,7 @@ public class Pre implements JewelNecklace{
 
     @Override
     public String toString() {
-        return String.format("Jewel = { weight: %.3f, price: %.3f, transparency: %.3f, name: %s, color: %s\n",
+        return String.format("PreciousStone = { weight: %.3f, price: %.3f, transparency: %.3f, name: %s, color: %s\n",
                 weight, price, transparency, name, color);
     }
 }
