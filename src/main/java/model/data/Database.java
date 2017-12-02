@@ -18,7 +18,7 @@ import java.util.List;
 public class Database {
     private static Database instance = new Database();
 
-    private List<Stone> stones = new ArrayList<>();
+    private List<PreciousStone> stones = new ArrayList<>();
     private List<Necklace> necklaces = new ArrayList<>();
 
     private Database() {
@@ -34,17 +34,18 @@ public class Database {
                 .name("opal")
                 .weight(3)
                 .price(5).build());
+        necklaces.add(new Necklace("biba"));
     }
 
     public static Database getInstance() {
         return instance;
     }
 
-    public List<Stone> getStones() {
+    public List<PreciousStone> getStones() {
         return stones;
     }
 
-    public void setStones(List<Stone> stones) {
+    public void setStones(List<PreciousStone> stones) {
         this.stones = stones;
     }
 

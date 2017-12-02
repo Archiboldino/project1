@@ -18,6 +18,9 @@ public class Necklace {
         this.name = name;
     }
 
+    public Necklace() {
+    }
+
     public List<PreciousStoneNecklace> getPreciousStones() {
         return preciousStones;
     }
@@ -32,5 +35,10 @@ public class Necklace {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Necklace={name: %s}", name);
     }
 }

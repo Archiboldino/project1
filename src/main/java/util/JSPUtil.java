@@ -8,4 +8,7 @@ package util;
  * @version 1.0
  */
 public class JSPUtil {
+    public static String formAddStoneLink(int necklaceId, int stoneId) {
+        return null;
+    }
 }
