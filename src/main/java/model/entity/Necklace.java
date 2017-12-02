@@ -11,13 +11,13 @@ import java.util.List;
  * @version 1.0
  */
 public class Necklace {
-    List<Jewel> jewels = new ArrayList<>();
+    private List<StoneNecklace> jewels = new ArrayList<>();
 
-    public List<Jewel> getJewels() {
+    public List<StoneNecklace> getJewels() {
         return jewels;
     }
 
-    public void setJewels(List<Jewel> jewels) {
+    public void setJewels(List<StoneNecklace> jewels) {
         this.jewels = jewels;
     }
 }
