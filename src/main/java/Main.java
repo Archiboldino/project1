@@ -1,5 +1,5 @@
 import model.entity.PreciousStone;
-import model.entity.Stone;
+import model.entity.SemiPreciousStone;
 
 /**
  * Main
@@ -18,7 +18,16 @@ public class Main {
                 .transparency(10)
                 .build();
 
+        SemiPreciousStone stone = new SemiPreciousStone.Builder()
+                .color("white")
+                .name("diamond")
+                .price(0.33)
+                .hardness(100)
+                .weight(10)
+                .build();
+
         System.out.println(jewel);
+        System.out.println(stone);
     }
 
 

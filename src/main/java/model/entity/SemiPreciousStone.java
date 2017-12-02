@@ -10,7 +10,7 @@ package model.entity;
 public class SemiPreciousStone extends Stone {
     private double hardness;
 
-    public SemiPreciousStone(Builder builder) {
+    private SemiPreciousStone(Builder builder) {
         super(builder);
         this.hardness = builder.hardness;
     }
@@ -21,6 +21,12 @@ public class SemiPreciousStone extends Stone {
 
     public void setHardness(double hardness) {
         this.hardness = hardness;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("SemiPreciousStone={weight: %.3f, price: %.2f, hardness: %.3f, name: %s, color: %s}",
+                weight, price, hardness, name, color);
     }
 
     public static class Builder extends Stone.Builder<Builder> {

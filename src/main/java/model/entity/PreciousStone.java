@@ -30,7 +30,7 @@ public class PreciousStone extends Stone implements StoneNecklace {
 
     @Override
     public String toString() {
-        return String.format("PreciousStone = { weight: %.3f, price: %.3f, transparency: %.3f, name: %s, color: %s\n",
+        return String.format("PreciousStone = { weight: %.3f, price: %.3f, transparency: %.3f, name: %s, color: %s",
                 weight, price, transparency, name, color);
     }
 
