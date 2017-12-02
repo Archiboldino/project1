@@ -7,22 +7,22 @@ package model.entity;
  * @author Nikita Zabaykin vladlihovid@gmail.com
  * @version 1.0
  */
-public class Jewel {
+public class Pre implements JewelNecklace{
     private double weight;
     private double price;
     private double transparency;
     private String name;
     private String color;
 
-//    public Jewel(double weight, double price, double transparency, String name, String color) {
-//        this.weight = weight;
-//        this.price = price;
-//        this.name = name;
-//        this.color = color;
-//        this.transparency = transparency;
-//    }
+    public Pre(double weight, double price, double transparency, String name, String color) {
+        this.weight = weight;
+        this.price = price;
+        this.name = name;
+        this.color = color;
+        this.transparency = transparency;
+    }
 
-    private Jewel(Builder builder) {
+    private Pre(Builder builder) {
         this.weight = builder.weight;
         this.price = builder.price;
         this.name = builder.name;
@@ -54,8 +54,8 @@ public class Jewel {
             return this;
         }
 
-        public Jewel build() {
-            return new Jewel(this);
+        public Pre build() {
+            return new Pre(this);
         }
     }
 
