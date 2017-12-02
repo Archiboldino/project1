@@ -1,7 +1,7 @@
 package util;
 
 import model.entity.Necklace;
-import model.entity.StoneNecklace;
+import model.entity.PreciousStoneNecklace;
 
 import java.util.Comparator;
 import java.util.List;
@@ -17,38 +17,38 @@ import java.util.stream.Collectors;
 public class NecklaceUtil {
 
     /**
-     * Calculates total jewel weight in necklace
+     * Calculates total precious stone weight in necklace
      *
-     * @param necklace necklace containing jewels
-     * @return total jewels weight
+     * @param necklace necklace containing precious stones
+     * @return total precious stones weight
      */
     public static Double getTotalWeight(Necklace necklace) {
-        return necklace.getJewels().stream()
-                .mapToDouble(StoneNecklace::getWeight).sum();
+        return necklace.getPreciousStones().stream()
+                .mapToDouble(PreciousStoneNecklace::getWeight).sum();
     }
 
     /**
-     * Sorts jewels in necklace ascending by price
+     * Sorts precious stones in necklace ascending by price
      *
-     * @param necklace necklace containing jewels to sort
-     * @return sorted jewels list
+     * @param necklace necklace containing precious stones to sort
+     * @return sorted precious stones list
      */
-    public static List<StoneNecklace> sortJewelsPrice(Necklace necklace) {
-        return necklace.getJewels().stream()
-                .sorted(Comparator.comparingDouble(StoneNecklace::getPrice))
+    public static List<PreciousStoneNecklace> sortJewelsPrice(Necklace necklace) {
+        return necklace.getPreciousStones().stream()
+                .sorted(Comparator.comparingDouble(PreciousStoneNecklace::getPrice))
                 .collect(Collectors.toList());
     }
 
     /**
-     * Filters jewels from necklace according to transparency
+     * Filters precious stones from necklace according to transparency
      *
-     * @param necklace necklace containing jewels to filter
+     * @param necklace necklace containing precious stones to filter
      * @param lower    lower transparency bound
      * @param upper    upper transparency bound
-     * @return filtered list of jewels
+     * @return filtered list of precious stones
      */
-    public static List<StoneNecklace> getJewelsTransparencyRange(Necklace necklace, Double lower, Double upper) {
-        return necklace.getJewels().stream()
+    public static List<PreciousStoneNecklace> getJewelsTransparencyRange(Necklace necklace, Double lower, Double upper) {
+        return necklace.getPreciousStones().stream()
                 .filter(j -> j.getTransparency() >= lower && j.getTransparency() <= upper)
                 .collect(Collectors.toList());
     }

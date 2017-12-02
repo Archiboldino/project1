@@ -7,7 +7,7 @@ package model.entity;
  * @author Nikita Zabaykin vladlihovid@gmail.com
  * @version 1.0
  */
-public class PreciousStone extends Stone implements StoneNecklace {
+public class PreciousStone extends Stone implements PreciousStoneNecklace {
     private double transparency;
 
     public PreciousStone(double weight, double price, double transparency, String name, String color) {

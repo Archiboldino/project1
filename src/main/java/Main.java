@@ -14,7 +14,7 @@ public class Main {
                 .price(10)
                 .weight(10)
                 .color("red")
-                .name("opal")
+                .name("ruby")
                 .transparency(10)
                 .build();
 
