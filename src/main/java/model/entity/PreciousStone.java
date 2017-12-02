@@ -19,28 +19,10 @@ public class PreciousStone extends Stone implements StoneNecklace {
         this.transparency = transparency;
     }
 
-    public static class Builder extends Stone.Builder<Builder> {
-        private double transparency;
-
-        public Builder transparency(double transparency) {
-            this.transparency = transparency;
-            return this;
-        }
-
-        @Override
-        public PreciousStone build() {
-            return new PreciousStone(this);
-        }
-    }
-
     private PreciousStone(Builder builder) {
-        this.weight = builder.weight;
-        this.price = builder.price;
-        this.name = builder.name;
-        this.color = builder.color;
+        super(builder);
         this.transparency = builder.transparency;
     }
-
 
     public double getTransparency() {
         return transparency;
@@ -55,4 +37,19 @@ public class PreciousStone extends Stone implements StoneNecklace {
         return String.format("PreciousStone = { weight: %.3f, price: %.3f, transparency: %.3f, name: %s, color: %s\n",
                 weight, price, transparency, name, color);
     }
+
+    public static class Builder extends Stone.Builder<Builder> {
+        private double transparency;
+
+        public Builder transparency(double transparency) {
+            this.transparency = transparency;
+            return this;
+        }
+
+        @Override
+        public PreciousStone build() {
+            return new PreciousStone(this);
+        }
+    }
+
 }
