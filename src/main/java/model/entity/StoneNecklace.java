@@ -9,7 +9,10 @@ package model.entity;
  */
 public interface StoneNecklace {
     double getWeight();
+
     double getPrice();
+
     double getTransparency();
+
     String getName();
 }

@@ -1,7 +1,7 @@
 package util;
 
-import model.entity.StoneNecklace;
 import model.entity.Necklace;
+import model.entity.StoneNecklace;
 
 import java.util.Comparator;
 import java.util.List;
@@ -18,6 +18,7 @@ public class NecklaceUtil {
 
     /**
      * Calculates total jewel weight in necklace
+     *
      * @param necklace necklace containing jewels
      * @return total jewels weight
      */
@@ -28,6 +29,7 @@ public class NecklaceUtil {
 
     /**
      * Sorts jewels in necklace ascending by price
+     *
      * @param necklace necklace containing jewels to sort
      * @return sorted jewels list
      */
@@ -39,9 +41,10 @@ public class NecklaceUtil {
 
     /**
      * Filters jewels from necklace according to transparency
+     *
      * @param necklace necklace containing jewels to filter
-     * @param lower lower transparency bound
-     * @param upper upper transparency bound
+     * @param lower    lower transparency bound
+     * @param upper    upper transparency bound
      * @return filtered list of jewels
      */
     public static List<StoneNecklace> getJewelsTransparencyRange(Necklace necklace, Double lower, Double upper) {

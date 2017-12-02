@@ -1,7 +1,7 @@
 package util;
 
-import model.entity.PreciousStone;
 import model.entity.Necklace;
+import model.entity.PreciousStone;
 import model.entity.StoneNecklace;
 import org.junit.Assert;
 import org.junit.Before;
@@ -61,7 +61,7 @@ public class NecklaceUtilTest {
         List<StoneNecklace> actual = NecklaceUtil.sortJewelsPrice(necklace);
 
         for (int i = 0; i < actual.size() - 1; i++) {
-            if(actual.get(i).getPrice() > actual.get(i + 1).getPrice())
+            if (actual.get(i).getPrice() > actual.get(i + 1).getPrice())
                 Assert.fail();
         }
     }
