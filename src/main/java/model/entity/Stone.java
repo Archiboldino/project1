@@ -1,7 +1,7 @@
 package model.entity;
 
 /**
- * Stone
+ * Abstract Stone class
  * created on 02.12.2017
  *
  * @author Nikita Zabaykin vladlihovid@gmail.com
@@ -16,6 +16,10 @@ public abstract class Stone {
     public Stone() {
     }
 
+    /**
+     * Basic constructor using builder to be used in child classes
+     * @param builder
+     */
     protected Stone(Builder builder) {
         this.weight = builder.weight;
         this.price = builder.price;
@@ -62,6 +66,11 @@ public abstract class Stone {
         this.weight = weight;
     }
 
+    /**
+     * Abstract Builder class
+     * All subclasses must implement build() method
+     * @param <T> type of concrete builder to be returned by each setter
+     */
     public abstract static class Builder<T extends Builder> {
         protected double weight;
         protected double price;

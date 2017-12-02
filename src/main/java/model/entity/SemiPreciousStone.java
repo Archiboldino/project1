@@ -1,7 +1,7 @@
 package model.entity;
 
 /**
- * model.entity.SemiPreciousStone
+ * SemiPreciousStone
  * created on 02.12.2017
  *
  * @author Nikita Zabaykin vladlihovid@gmail.com

@@ -33,7 +33,7 @@ public class NecklaceUtil {
      * @param necklace necklace containing precious stones to sort
      * @return sorted precious stones list
      */
-    public static List<PreciousStoneNecklace> sortJewelsPrice(Necklace necklace) {
+    public static List<PreciousStoneNecklace> sortPrice(Necklace necklace) {
         return necklace.getPreciousStones().stream()
                 .sorted(Comparator.comparingDouble(PreciousStoneNecklace::getPrice))
                 .collect(Collectors.toList());
@@ -47,7 +47,7 @@ public class NecklaceUtil {
      * @param upper    upper transparency bound
      * @return filtered list of precious stones
      */
-    public static List<PreciousStoneNecklace> getJewelsTransparencyRange(Necklace necklace, Double lower, Double upper) {
+    public static List<PreciousStoneNecklace> getTransparencyRange(Necklace necklace, Double lower, Double upper) {
         return necklace.getPreciousStones().stream()
                 .filter(j -> j.getTransparency() >= lower && j.getTransparency() <= upper)
                 .collect(Collectors.toList());

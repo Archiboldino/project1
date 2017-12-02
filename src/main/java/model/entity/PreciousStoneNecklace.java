@@ -2,6 +2,7 @@ package model.entity;
 
 /**
  * PreciousStoneNecklace
+ * Interface used to transfer data between PreciousStone and Necklace
  * created on 01.12.2017
  *
  * @author Nikita Zabaykin vladlihovid@gmail.com

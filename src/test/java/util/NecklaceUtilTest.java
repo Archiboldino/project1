@@ -57,8 +57,8 @@ public class NecklaceUtilTest {
     }
 
     @Test
-    public void sortJewelsPriceTest() throws Exception {
-        List<PreciousStoneNecklace> actual = NecklaceUtil.sortJewelsPrice(necklace);
+    public void sortPriceTest() throws Exception {
+        List<PreciousStoneNecklace> actual = NecklaceUtil.sortPrice(necklace);
 
         for (int i = 0; i < actual.size() - 1; i++) {
             if (actual.get(i).getPrice() > actual.get(i + 1).getPrice())
@@ -67,9 +67,10 @@ public class NecklaceUtilTest {
     }
 
     @Test
-    public void getJewelsTransparencyRangeTest() {
-        List<PreciousStoneNecklace> actual = NecklaceUtil.getJewelsTransparencyRange(necklace, 4d, 7d);
+    public void getTransparencyRangeTest() {
+        List<PreciousStoneNecklace> actual = NecklaceUtil.getTransparencyRange(necklace, 4d, 7d);
 
         Assert.assertEquals(expectedFilteredPreciousStones, actual);
+        Assert.assertNotEquals(necklace.getPreciousStones(), actual);
     }
 }
