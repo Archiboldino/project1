@@ -23,6 +23,13 @@ public abstract class Stone {
         this.color = builder.color;
     }
 
+    public Stone(double weight, double price, String name, String color) {
+        this.weight = weight;
+        this.price = price;
+        this.name = name;
+        this.color = color;
+    }
+
     public String getName() {
         return name;
     }

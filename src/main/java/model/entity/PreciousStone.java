@@ -11,11 +11,7 @@ public class PreciousStone extends Stone implements StoneNecklace {
     private double transparency;
 
     public PreciousStone(double weight, double price, double transparency, String name, String color) {
-        super();
-        this.weight = weight;
-        this.price = price;
-        this.name = name;
-        this.color = color;
+        super(weight, price, name, color);
         this.transparency = transparency;
     }
 
