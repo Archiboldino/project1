@@ -10,11 +10,13 @@ package util;
 public interface Constants {
     String STONES_LIST_ATTRIBUTE_KEY = "stones";
     String NECKLACES_LIST_ATTRIBUTE_KEY = "necklaces";
-    String NECKLACE_NAME_REQUEST_PARAMETER = "necklaceName";
     String NECKLACE_ATTRIBUTE_KEY = "necklace";
+    String BUNDLE_ATTRIBUTE_KEY = "bundle";
+
+    String NECKLACE_NAME_REQUEST_PARAMETER = "necklaceName";
     String STONE_ID_REQUEST_PARAMETER = "stoneId";
     String NECKLACE_ID_REQUEST_PARAMETER = "id";
-    String BUNDLE_ATTRIBUTE_KEY = "bundle";
+
     String INDEX_BUNDLE_PATH = "index_strings";
     String DETAIL_BUNDLE_PATH = "necklace_detail_strings";
 
