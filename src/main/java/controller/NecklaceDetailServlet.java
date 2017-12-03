@@ -2,7 +2,6 @@ package controller;
 
 import model.data.Database;
 import model.entity.Necklace;
-import model.entity.PreciousStone;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Locale;
 import java.util.ResourceBundle;
 
 import static util.Constants.*;

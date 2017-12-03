@@ -25,7 +25,8 @@
         ResourceBundle bundle = ((ResourceBundle) request.getAttribute(BUNDLE_ATTRIBUTE_KEY));
     %>
     <div class="col">
-        <h3><%=bundle.getString(BUNDLE_INDEX_NECKLACES_TITLE)%></h3>
+        <h3><%=bundle.getString(BUNDLE_INDEX_NECKLACES_TITLE)%>
+        </h3>
         <% for (int i = 0; i < necklaces.size(); i++) { %>
         <a href="${pageContext.request.contextPath}<%=NECKLACE_DETAIL_URL%><%=i%>" class="item">
             <%=String.format("<div>%d. %s</div>", i + 1, necklaces.get(i))%>
@@ -33,14 +34,16 @@
         <%} %>
     </div>
     <div class="col">
-        <h3><%=bundle.getString(BUNDLE_INDEX_STONES_TITLE)%></h3>
+        <h3><%=bundle.getString(BUNDLE_INDEX_STONES_TITLE)%>
+        </h3>
         <% for (int i = 0; i < stones.size(); i++) { %>
         <div class="item"><%=String.format("<div>%d. %s</div>", i + 1, stones.get(i))%>
         </div>
         <%} %>
     </div>
     <form method="post" action="${pageContext.request.contextPath}/}">
-        <input type="text" name="necklaceName" placeholder="<%=bundle.getString(BUNDLE_INDEX_NECKLACE_INPUT_PLACEHOLDER)%>" >
+        <input type="text" name="necklaceName"
+               placeholder="<%=bundle.getString(BUNDLE_INDEX_NECKLACE_INPUT_PLACEHOLDER)%>">
         <input type="submit" value="<%=bundle.getString(BUNDLE_INDEX_NECKLACE_ADDBUTTON)%>">
     </form>
 </div>

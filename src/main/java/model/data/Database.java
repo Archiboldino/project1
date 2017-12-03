@@ -2,7 +2,6 @@ package model.data;
 
 import model.entity.Necklace;
 import model.entity.PreciousStone;
-import model.entity.Stone;
 
 import java.util.ArrayList;
 import java.util.List;

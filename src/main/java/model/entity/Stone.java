@@ -18,6 +18,7 @@ public abstract class Stone {
 
     /**
      * Basic constructor using builder to be used in child classes
+     *
      * @param builder
      */
     protected Stone(Builder builder) {
@@ -69,6 +70,7 @@ public abstract class Stone {
     /**
      * Abstract Builder class
      * All subclasses must implement build() method
+     *
      * @param <T> type of concrete builder to be returned by each setter
      */
     public abstract static class Builder<T extends Builder> {

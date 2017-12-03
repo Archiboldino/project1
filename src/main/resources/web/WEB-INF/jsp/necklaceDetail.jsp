@@ -22,10 +22,12 @@
     List<Stone> stones = (List<Stone>) request.getAttribute(STONES_LIST_ATTRIBUTE_KEY);
     ResourceBundle bundle = ((ResourceBundle) request.getAttribute(BUNDLE_ATTRIBUTE_KEY));
 %>
-<a href="/"><H1><%=necklace.getName()%></H1></a>
+<a href="/"><H1><%=necklace.getName()%>
+</H1></a>
 <div id="container">
     <div class="col">
-        <H2><%=bundle.getString(BUNDLE_DETAIL_STONES_TITLE_KEY)%></H2>
+        <H2><%=bundle.getString(BUNDLE_DETAIL_STONES_TITLE_KEY)%>
+        </H2>
         <% for (int i = 0; i < necklace.getPreciousStones().size(); i++) { %>
         <div class="item">
             <%=String.format("<div>%d. %s</div>", i + 1, necklace.getPreciousStones().get(i))%>
@@ -37,7 +39,8 @@
         </div>
     </div>
     <div class="col">
-        <H2><%=bundle.getString(BUNDLE_DeTAIL_ALLSTONES_TITLE)%></H2>
+        <H2><%=bundle.getString(BUNDLE_DeTAIL_ALLSTONES_TITLE)%>
+        </H2>
         <form method="post" action="${pageContext.request.contextPath}/necklace">
             <% for (int i = 0; i < stones.size(); i++) { %>
             <div class="item">

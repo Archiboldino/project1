@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ResourceBundle;
 
-import static java.util.ResourceBundle.getBundle;
 import static util.Constants.*;
 
 /**
