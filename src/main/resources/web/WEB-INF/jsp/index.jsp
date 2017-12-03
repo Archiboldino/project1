@@ -21,7 +21,7 @@
     <div class="col">
         <h3>NECKLACES</h3>
         <% for (int i = 0; i < necklaces.size(); i++) { %>
-        <a href="/necklace?id=<%=i%>" class="item">
+        <a href="${pageContext.request.contextPath}/necklace?id=<%=i%>" class="item">
             <%=String.format("<div>%d. %s</div>", i + 1, necklaces.get(i))%>
         </a>
         <%} %>
