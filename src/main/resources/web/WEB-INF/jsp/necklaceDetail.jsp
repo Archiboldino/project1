@@ -30,7 +30,7 @@
         </H2>
         <% for (int i = 0; i < necklace.getPreciousStones().size(); i++) { %>
         <div class="item">
-            <%=String.format("<div>%d. %s</div>", i + 1, necklace.getPreciousStones().get(i))%>
+            <%=String.format("<div>%d. %s</div>", i + 1, NecklaceUtil.sortPrice(necklace).get(i))%>
         </div>
         <%}%>
         <div id="info">
