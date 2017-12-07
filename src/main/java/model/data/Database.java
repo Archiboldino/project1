@@ -1,5 +1,6 @@
 package model.data;
 
+import model.entity.Color;
 import model.entity.Necklace;
 import model.entity.PreciousStone;
 
@@ -22,13 +23,13 @@ public class Database {
 
     private Database() {
         stones.add(new PreciousStone.Builder()
-                .color("red")
+                .color(Color.RED)
                 .transparency(1)
                 .name("ruby")
                 .weight(10)
                 .price(3).build());
         stones.add(new PreciousStone.Builder()
-                .color("blue")
+                .color(Color.BLUE)
                 .transparency(1)
                 .name("opal")
                 .weight(3)

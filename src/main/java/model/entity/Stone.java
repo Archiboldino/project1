@@ -11,7 +11,7 @@ public abstract class Stone {
     protected String name;
     protected double price;
     protected double weight;
-    protected String color;
+    protected Color color;
 
     public Stone() {
     }
@@ -28,7 +28,7 @@ public abstract class Stone {
         this.color = builder.color;
     }
 
-    public Stone(double weight, double price, String name, String color) {
+    public Stone(double weight, double price, String name, Color color) {
         this.weight = weight;
         this.price = price;
         this.name = name;
@@ -51,11 +51,11 @@ public abstract class Stone {
         this.price = price;
     }
 
-    public String getColor() {
+    public Color getColor() {
         return color;
     }
 
-    public void setColor(String color) {
+    public void setColor(Color color) {
         this.color = color;
     }
 
@@ -77,7 +77,7 @@ public abstract class Stone {
         protected double weight;
         protected double price;
         protected String name = "";
-        protected String color = "";
+        protected Color color;
 
 
         public T weight(double weight) {
@@ -95,7 +95,7 @@ public abstract class Stone {
             return (T) this;
         }
 
-        public T color(String color) {
+        public T color(Color color) {
             this.color = color;
             return (T) this;
         }

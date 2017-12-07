@@ -1,3 +1,4 @@
+import model.entity.Color;
 import model.entity.PreciousStone;
 import model.entity.SemiPreciousStone;
 
@@ -13,13 +14,13 @@ public class Main {
         PreciousStone jewel = new PreciousStone.Builder()
                 .price(10)
                 .weight(10)
-                .color("red")
+                .color(Color.RED)
                 .name("ruby")
                 .transparency(10)
                 .build();
 
         SemiPreciousStone stone = new SemiPreciousStone.Builder()
-                .color("white")
+                .color(Color.BLUE)
                 .name("diamond")
                 .price(0.33)
                 .hardness(100)

@@ -10,7 +10,7 @@ package model.entity;
 public class PreciousStone extends Stone implements PreciousStoneNecklace {
     private double transparency;
 
-    public PreciousStone(double weight, double price, double transparency, String name, String color) {
+    public PreciousStone(double weight, double price, double transparency, String name, Color color) {
         super(weight, price, name, color);
         this.transparency = transparency;
     }
