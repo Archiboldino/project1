@@ -8,7 +8,7 @@ package model.entity;
  * @version 1.0
  */
 public enum Color {
-    RED("#ff0000"), GREEN("#00ff00"), BLUE("#0000ff");
+    RED("#ff0000"), GREEN("#00ff00"), BLUE("#0000ff"), WHITE("#ffffff"), BLACK("#000000");
     private String colourHex;
 
     Color(String colourHex) {
