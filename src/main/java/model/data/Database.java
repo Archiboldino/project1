@@ -34,6 +34,12 @@ public class Database {
                 .name("opal")
                 .weight(3)
                 .price(5).build());
+        stones.add(new PreciousStone.Builder()
+                .color(Color.WHITE)
+                .transparency(1)
+                .name("brilliant")
+                .weight(3)
+                .price(5).build());
         necklaces.add(new Necklace("biba"));
     }
 
