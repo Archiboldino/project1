@@ -37,7 +37,7 @@
         <h3><%=bundle.getString(BUNDLE_INDEX_STONES_TITLE)%>
         </h3>
         <% for (int i = 0; i < stones.size(); i++) { %>
-        <div class="item"><%=String.format("<div>%d. %s</div>", i + 1, stones.get(i))%>
+        <div class="item" style="color: <%=stones.get(i).getColor().getColourHex()%>"><%=String.format("<div>%d. %s</div>", i + 1, stones.get(i))%>
         </div>
         <%} %>
     </div>
