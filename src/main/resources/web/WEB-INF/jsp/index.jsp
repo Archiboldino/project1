@@ -28,7 +28,7 @@
         <h3><%=bundle.getString(BUNDLE_INDEX_NECKLACES_TITLE)%>
         </h3>
         <% for (int i = 0; i < necklaces.size(); i++) { %>
-        <a href="${pageContext.request.contextPath}<%=NECKLACE_DETAIL_URL%><%=i%>" class="item">
+        <a href="${pageContext.request.contextPath}<%=NECKLACE_DETAIL_URL%><%=necklaces.get(i).getId()%>" class="item">
             <%=String.format("<div>%d. %s</div>", i + 1, necklaces.get(i))%>
         </a>
         <%} %>

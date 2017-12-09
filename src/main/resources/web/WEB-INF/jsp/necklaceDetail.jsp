@@ -9,6 +9,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ResourceBundle" %>
 <%@ page import="static util.Constants.*" %>
+<%@ page import="model.entity.PreciousStone" %>
 <html>
 <head>
     <title><%out.print(((Necklace) request.getAttribute(NECKLACE_ATTRIBUTE_KEY)).getName());%></title>
@@ -19,7 +20,7 @@
 <body>
 <%
     Necklace necklace = ((Necklace) request.getAttribute(NECKLACE_ATTRIBUTE_KEY));
-    List<Stone> stones = (List<Stone>) request.getAttribute(STONES_LIST_ATTRIBUTE_KEY);
+    List<PreciousStone> stones = (List<PreciousStone>) request.getAttribute(STONES_LIST_ATTRIBUTE_KEY);
     ResourceBundle bundle = ((ResourceBundle) request.getAttribute(BUNDLE_ATTRIBUTE_KEY));
 %>
 <a href="/"><H1><%=necklace.getName()%>
@@ -44,7 +45,7 @@
         <form method="post" action="${pageContext.request.contextPath}/necklace">
             <% for (int i = 0; i < stones.size(); i++) { %>
             <div class="item">
-                <input type="submit" name="stoneId" value="<%=i%>">
+                <input type="submit" name="stoneId" value="<%=stones.get(i).getId()%>">
                 <%=String.format("<div> %s</div>", stones.get(i))%>
             </div>
             <%} %>
