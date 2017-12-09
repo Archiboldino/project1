@@ -30,4 +30,8 @@ public interface Constants {
     String BUNDLE_DeTAIL_ALLSTONES_TITLE = "detail.allstones.title";
 
     String NECKLACE_DETAIL_URL = "/necklace?id=";
+
+    String DATABASE_PATH = "jdbc:mysql://localhost:3306/stone";
+    String DATABASE_USER = "root";
+    String DATABASE_PASS = "";
 }
