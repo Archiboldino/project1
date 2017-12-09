@@ -1,13 +1,10 @@
 package model.data.dao.util;
 
 import model.entity.Color;
-import model.entity.Necklace;
 import model.entity.PreciousStone;
-import model.entity.Stone;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Map;
 
 /**
  * PreciousStoneMaper
@@ -28,8 +25,7 @@ public class PreciousStoneMaper {
                     .weight(rs.getDouble("stone_weight")).build();
 
             return stone;
-        }
-        catch (SQLException e) {
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }

@@ -11,18 +11,19 @@ import model.data.dao.impl.JDBCDaoFactory;
  */
 public abstract class DaoFactory {
     private static DaoFactory daoFactory;
-    
-    public abstract PreciousStoneDao createStoneDao();
-    public abstract NecklaceDao createNecklaceDao();
 
     public static DaoFactory getInstance() {
-        if(daoFactory == null) { // Double checked
+        if (daoFactory == null) { // Double checked
             synchronized (DaoFactory.class) {
-                if(daoFactory == null) {
+                if (daoFactory == null) {
                     daoFactory = new JDBCDaoFactory();
                 }
             }
         }
         return daoFactory;
     }
+
+    public abstract PreciousStoneDao createStoneDao();
+
+    public abstract NecklaceDao createNecklaceDao();
 }

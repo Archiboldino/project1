@@ -40,7 +40,7 @@ public class Database {
                 .name("brilliant")
                 .weight(3)
                 .price(5).build());
-        necklaces.add(new Necklace("biba"));
+        necklaces.add(new Necklace("newcklace"));
     }
 
     public static Database getInstance() {
