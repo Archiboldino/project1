@@ -2,6 +2,8 @@ package controller;
 
 import model.data.Database;
 import model.entity.Necklace;
+import service.NecklaceService;
+import service.StoneService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,17 +24,16 @@ import static util.Constants.*;
  */
 @WebServlet(urlPatterns = "/necklace")
 public class NecklaceDetailServlet extends HttpServlet {
-    private Database database = Database.getInstance();
     private Necklace chosenNecklace;
     private int necklaceId;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         necklaceId = Integer.parseInt(req.getParameter(NECKLACE_ID_REQUEST_PARAMETER));
-        chosenNecklace = database.getNecklaces().get(necklaceId);
+        chosenNecklace = NecklaceService.getById(necklaceId);
 
         req.setAttribute(NECKLACE_ATTRIBUTE_KEY, chosenNecklace);
-        req.setAttribute(STONES_LIST_ATTRIBUTE_KEY, database.getStones());
+        req.setAttribute(STONES_LIST_ATTRIBUTE_KEY, StoneService.getAll());
         req.setAttribute(BUNDLE_ATTRIBUTE_KEY, ResourceBundle.getBundle(DETAIL_BUNDLE_PATH, req.getLocale()));
 
         getServletContext().getRequestDispatcher("/WEB-INF/jsp/necklaceDetail.jsp").forward(req, resp);
@@ -41,7 +42,8 @@ public class NecklaceDetailServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int stoneId = Integer.parseInt(req.getParameter(STONE_ID_REQUEST_PARAMETER));
-        chosenNecklace.getPreciousStones().add(database.getStones().get(stoneId));
+        chosenNecklace.getPreciousStones().add(StoneService.getById(stoneId));
+        NecklaceService.save(chosenNecklace);
 
         resp.sendRedirect(NECKLACE_DETAIL_URL + necklaceId);
     }

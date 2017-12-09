@@ -1,7 +1,11 @@
 package controller;
 
-import model.data.Database;
+import model.data.dao.DaoFactory;
+import model.data.dao.NecklaceDao;
+import model.data.dao.PreciousStoneDao;
 import model.entity.Necklace;
+import service.StoneService;
+import service.NecklaceService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,12 +26,10 @@ import static util.Constants.*;
  */
 @WebServlet(urlPatterns = "/")
 public class IndexServlet extends HttpServlet {
-    private Database database = Database.getInstance();
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute(STONES_LIST_ATTRIBUTE_KEY, database.getStones());
-        req.setAttribute(NECKLACES_LIST_ATTRIBUTE_KEY, database.getNecklaces());
+        req.setAttribute(STONES_LIST_ATTRIBUTE_KEY, StoneService.getAll());
+        req.setAttribute(NECKLACES_LIST_ATTRIBUTE_KEY, NecklaceService.getAll());
         req.setAttribute(BUNDLE_ATTRIBUTE_KEY, ResourceBundle.getBundle(INDEX_BUNDLE_PATH, req.getLocale()));
 
 
@@ -36,7 +38,7 @@ public class IndexServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        database.getNecklaces().add(new Necklace(req.getParameter(NECKLACE_NAME_REQUEST_PARAMETER)));
+        NecklaceService.add(new Necklace(req.getParameter(NECKLACE_NAME_REQUEST_PARAMETER)));
         resp.sendRedirect("/");
     }
 }
