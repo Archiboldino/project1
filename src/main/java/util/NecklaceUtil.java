@@ -1,6 +1,7 @@
 package util;
 
 import model.entity.Necklace;
+import model.entity.PreciousStone;
 import model.entity.PreciousStoneNecklace;
 
 import java.util.Comparator;
@@ -24,7 +25,7 @@ public class NecklaceUtil {
      */
     public static Double getTotalWeight(Necklace necklace) {
         return necklace.getPreciousStones().stream()
-                .mapToDouble(PreciousStoneNecklace::getWeight).sum();
+                .mapToDouble(PreciousStone::getWeight).sum();
     }
 
     /**
@@ -33,9 +34,9 @@ public class NecklaceUtil {
      * @param necklace necklace containing precious stones to sort
      * @return sorted precious stones list
      */
-    public static List<PreciousStoneNecklace> sortPrice(Necklace necklace) {
+    public static List<PreciousStone> sortPrice(Necklace necklace) {
         return necklace.getPreciousStones().stream()
-                .sorted(Comparator.comparingDouble(PreciousStoneNecklace::getPrice))
+                .sorted(Comparator.comparingLong(PreciousStone::getPrice))
                 .collect(Collectors.toList());
     }
 
@@ -47,7 +48,7 @@ public class NecklaceUtil {
      * @param upper    upper transparency bound
      * @return filtered list of precious stones
      */
-    public static List<PreciousStoneNecklace> getTransparencyRange(Necklace necklace, Double lower, Double upper) {
+    public static List<PreciousStone> getTransparencyRange(Necklace necklace, Double lower, Double upper) {
         return necklace.getPreciousStones().stream()
                 .filter(j -> j.getTransparency() >= lower && j.getTransparency() <= upper)
                 .collect(Collectors.toList());
