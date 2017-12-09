@@ -1,10 +1,13 @@
 package model.data.dao.util;
 
 import model.entity.Color;
+import model.entity.Necklace;
 import model.entity.PreciousStone;
+import model.entity.Stone;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Map;
 
 /**
  * PreciousStoneMaper
@@ -17,12 +20,12 @@ public class PreciousStoneMaper {
     public static PreciousStone mapFromResultSet(ResultSet rs) {
         try {
             PreciousStone stone = new PreciousStone.Builder()
-                    .id(rs.getInt("id"))
-                    .name(rs.getString("name"))
-                    .color(Color.values()[rs.getInt("color")])
-                    .transparency(rs.getDouble("transparency"))
-                    .price(rs.getLong("price"))
-                    .weight(rs.getDouble("weight")).build();
+                    .id(rs.getInt("stone_id"))
+                    .name(rs.getString("stone_name"))
+                    .color(Color.values()[rs.getInt("stone_color")])
+                    .transparency(rs.getDouble("stone_transparency"))
+                    .price(rs.getLong("stone_price"))
+                    .weight(rs.getDouble("stone_weight")).build();
 
             return stone;
         }
@@ -30,4 +33,5 @@ public class PreciousStoneMaper {
             throw new RuntimeException(e);
         }
     }
+
 }

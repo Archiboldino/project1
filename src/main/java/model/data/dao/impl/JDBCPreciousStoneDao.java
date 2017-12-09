@@ -26,7 +26,8 @@ public class JDBCPreciousStoneDao implements PreciousStoneDao {
     public List<PreciousStone> getAll() {
         List<PreciousStone> res = new ArrayList<>();
         try (Statement st = connection.createStatement()) {
-            ResultSet rs = st.executeQuery("SELECT id, name, price, color, transparency FROM precious_stone");
+            ResultSet rs = st.executeQuery("SELECT id stone_id, name stone_name, price stone_price," +
+                    " color stone_color, transparency stone_transparency, weight stone_weight FROM precious_stone");
 
             while (rs.next()) {
                 res.add(PreciousStoneMaper.mapFromResultSet(rs));
@@ -41,7 +42,8 @@ public class JDBCPreciousStoneDao implements PreciousStoneDao {
     @Override
     public PreciousStone getById(int id) {
         try (PreparedStatement st = connection.
-                prepareStatement("SELECT id, name, price, color, transparency FROM precious_stone " +
+                prepareStatement("SELECT id stone_id, name stone_name, price stone_price, " +
+                        "color stone_color, transparency stone_transparency, weight stone_weight FROM precious_stone " +
                         "WHERE id=?;")) {
             st.setInt(1, id);
 
