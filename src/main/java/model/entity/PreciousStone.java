@@ -1,7 +1,5 @@
 package model.entity;
 
-import javax.persistence.criteria.CriteriaBuilder;
-
 /**
  * PreciousStone
  * created on 29.11.2017
@@ -39,6 +37,14 @@ public class PreciousStone extends Stone {
                 weight, price, transparency, name, color);
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     public static class Builder extends Stone.Builder<Builder> {
         private double transparency;
         private Integer id;
@@ -57,13 +63,5 @@ public class PreciousStone extends Stone {
         public PreciousStone build() {
             return new PreciousStone(this);
         }
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 }

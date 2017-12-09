@@ -11,6 +11,7 @@ import java.util.List;
  * @version 1.0
  */
 public class Necklace {
+    private Integer id;
     private List<PreciousStone> preciousStones = new ArrayList<PreciousStone>();
     private String name;
 
@@ -40,5 +41,13 @@ public class Necklace {
     @Override
     public String toString() {
         return String.format("Necklace={name: %s}", name);
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }
