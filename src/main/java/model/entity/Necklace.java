@@ -11,7 +11,7 @@ import java.util.List;
  * @version 1.0
  */
 public class Necklace {
-    private List<PreciousStoneNecklace> preciousStones = new ArrayList<>();
+    private List<PreciousStone> preciousStones = new ArrayList<PreciousStone>();
     private String name;
 
     public Necklace(String name) {
@@ -21,11 +21,11 @@ public class Necklace {
     public Necklace() {
     }
 
-    public List<PreciousStoneNecklace> getPreciousStones() {
+    public List<PreciousStone> getPreciousStones() {
         return preciousStones;
     }
 
-    public void setPreciousStones(List<PreciousStoneNecklace> preciousStones) {
+    public void setPreciousStones(List<PreciousStone> preciousStones) {
         this.preciousStones = preciousStones;
     }
 
