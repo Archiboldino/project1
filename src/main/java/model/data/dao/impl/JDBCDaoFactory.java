@@ -30,8 +30,9 @@ public class JDBCDaoFactory extends DaoFactory {
 
     private Connection getConnection() {
         try {
+            Class.forName("com.mysql.jdbc.Driver");
             return DriverManager.getConnection(DATABASE_PATH, DATABASE_USER, DATABASE_PASS);
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
     }
