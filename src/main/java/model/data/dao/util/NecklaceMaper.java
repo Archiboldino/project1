@@ -25,10 +25,13 @@ public class NecklaceMaper {
         }
     }
 
-    public static void makeUniqueStones(Necklace necklace, PreciousStone stone, Map<Integer, PreciousStone> stones) {
+    public static void makeUniqueStones(Necklace necklace, PreciousStone stone, Map<Integer, PreciousStone> stones, Map<Integer, Necklace> necklaces) {
         if (stone.getId() != 0) {
+            necklaces.putIfAbsent(necklace.getId(), necklace);
             stones.putIfAbsent(stone.getId(), stone);
-            necklace.getPreciousStones().add(stones.get(stone.getId()));
+            stone = stones.get(stone.getId());
+            necklace = necklaces.get(necklace.getId());
+            necklace.getPreciousStones().add(stone);
         }
     }
 }
