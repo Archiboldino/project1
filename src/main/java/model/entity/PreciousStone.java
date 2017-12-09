@@ -33,8 +33,8 @@ public class PreciousStone extends Stone {
 
     @Override
     public String toString() {
-        return String.format("PreciousStone = { weight: %.3f, price: %.3f, transparency: %.3f, name: %s, color: %s",
-                weight, price, transparency, name, color);
+        return String.format("PreciousStone = { weight: %.3f, price: %d, transparency: %.3f, name: %s, color: %s, ref: %s}",
+                weight, price, transparency, name, color, super.toString());
     }
 
     public Integer getId() {

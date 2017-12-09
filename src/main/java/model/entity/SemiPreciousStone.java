@@ -25,7 +25,7 @@ public class SemiPreciousStone extends Stone {
 
     @Override
     public String toString() {
-        return String.format("SemiPreciousStone={weight: %.3f, price: %.2f, hardness: %.3f, name: %s, color: %s}",
+        return String.format("SemiPreciousStone={weight: %.3f, price: %d, hardness: %.3f, name: %s, color: %s}",
                 weight, price, hardness, name, color);
     }
 
