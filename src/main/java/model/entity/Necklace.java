@@ -40,7 +40,7 @@ public class Necklace {
 
     @Override
     public String toString() {
-        return String.format("Necklace={name: %s}", name) + getPreciousStones().toString();
+        return String.format("Necklace={name: %s}", name);
     }
 
     public Integer getId() {
