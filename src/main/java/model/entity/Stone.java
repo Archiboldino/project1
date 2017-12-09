@@ -9,7 +9,7 @@ package model.entity;
  */
 public abstract class Stone {
     protected String name;
-    protected double price;
+    protected long price;
     protected double weight;
     protected Color color;
 
@@ -28,7 +28,7 @@ public abstract class Stone {
         this.color = builder.color;
     }
 
-    public Stone(double weight, double price, String name, Color color) {
+    public Stone(double weight, long price, String name, Color color) {
         this.weight = weight;
         this.price = price;
         this.name = name;
@@ -43,11 +43,11 @@ public abstract class Stone {
         this.name = name;
     }
 
-    public double getPrice() {
+    public long getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(long price) {
         this.price = price;
     }
 
@@ -75,7 +75,7 @@ public abstract class Stone {
      */
     public abstract static class Builder<T extends Builder> {
         protected double weight;
-        protected double price;
+        protected long price;
         protected String name = "";
         protected Color color;
 
@@ -85,7 +85,7 @@ public abstract class Stone {
             return (T) this;
         }
 
-        public T price(double price) {
+        public T price(long price) {
             this.price = price;
             return (T) this;
         }
