@@ -76,16 +76,56 @@ public class JDBCNecklaceDao implements NecklaceDao {
 
     @Override
     public void insert(Necklace item) {
+        try (PreparedStatement st = connection.prepareStatement("INSERT INTO necklace (name) VALUES (?)")) {
+            st.setString(1, item.getName());
 
+            st.execute();
+
+            for (PreciousStone s : item.getPreciousStones()) {
+                saveStoneToNecklace(item, s);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void saveStoneToNecklace(Necklace necklace, PreciousStone stone) {
+        try (PreparedStatement st = connection.prepareStatement("INSERT INTO stone_to_necklace " +
+                "(stone_id, necklace_id) VALUES (?, ?)")) {
+
+            st.setInt(1, stone.getId());
+            st.setInt(2, necklace.getId());
+
+            st.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
     public void delete(Necklace item) {
+        try (PreparedStatement st = connection.prepareStatement("DELETE FROM necklace " +
+                "WHERE id=?")) {
 
+            st.setInt(1, item.getId());
+
+            st.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
     public void update(Necklace item) {
+        try (PreparedStatement st = connection.prepareStatement("UPDATE necklace" +
+                " SET name=? WHERE id=?")) {
 
+            st.setString(1, item.getName());
+            st.setInt(2, item.getId());
+
+            st.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
