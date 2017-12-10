@@ -1,6 +1,5 @@
 package controller;
 
-import model.data.Database;
 import model.entity.Necklace;
 import service.NecklaceService;
 import service.StoneService;
