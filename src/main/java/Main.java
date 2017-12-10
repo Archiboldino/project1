@@ -1,4 +1,8 @@
+import model.data.dao.DaoFactory;
+import model.data.dao.NecklaceDao;
+import model.data.dao.PreciousStoneDao;
 import model.entity.Color;
+import model.entity.Necklace;
 import model.entity.PreciousStone;
 import model.entity.SemiPreciousStone;
 
@@ -12,7 +16,7 @@ import model.entity.SemiPreciousStone;
 public class Main {
     public static void main(String[] args) {
         PreciousStone jewel = new PreciousStone.Builder()
-                .price(10)
+                .price(10L)
                 .weight(10)
                 .color(Color.RED)
                 .name("ruby")
@@ -22,13 +26,14 @@ public class Main {
         SemiPreciousStone stone = new SemiPreciousStone.Builder()
                 .color(Color.BLUE)
                 .name("diamond")
-                .price(0.33)
+                .price(33)
                 .hardness(100)
                 .weight(10)
                 .build();
 
-        System.out.println(jewel);
-        System.out.println(stone);
+        NecklaceDao dao = DaoFactory.getInstance().createNecklaceDao();
+        System.out.println(dao.getAll());
+
     }
 
 
