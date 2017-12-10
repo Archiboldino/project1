@@ -12,6 +12,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static model.data.dao.util.DaoConstants.*;
+
 /**
  * JDBCNecklaceDao
  * created on 09.12.2017
@@ -20,25 +22,6 @@ import java.util.Map;
  * @version 1.0
  */
 public class JDBCNecklaceDao implements NecklaceDao {
-    public static final String GET_ALL_NECKLACES_QUERY =
-            "SELECT n.id necklace_id, n.name necklace_name, p.name stone_name, " +
-                    "p.id stone_id, p.name stone_name, p.price stone_price, " +
-                    "p.color stone_color, p.transparency stone_transparency, p.weight stone_weight " +
-                    "FROM necklace n LEFT JOIN stone_to_necklace j ON n.id = j.necklace_id " +
-                    "LEFT JOIN precious_stone p ON p.id = j.stone_id; ";
-    public static final String GET_NECKLACE_BY_ID_QUERY = "SELECT n.id necklace_id, n.name necklace_name, p.name stone_name, " +
-            "p.id stone_id, p.name stone_name, p.price stone_price, " +
-            "p.color stone_color, p.transparency stone_transparency, p.weight stone_weight " +
-            "FROM necklace n LEFT JOIN stone_to_necklace j ON n.id = j.necklace_id " +
-            "LEFT JOIN precious_stone p ON p.id = j.stone_id " +
-            "WHERE n.id = ?";
-    public static final String INSERT_NECKLACE_QUERY = "INSERT INTO necklace (name) VALUES (?)";
-    public static final String SAVE_STONE_TO_NECKLACE_QUERY = "INSERT INTO stone_to_necklace " +
-            "(stone_id, necklace_id) VALUES (?, ?)";
-    public static final String DELETE_NECKLACE_QUERY = "DELETE FROM necklace " +
-            "WHERE id=?";
-    public static final String UPDATE_NECKLACE_QUERY = "UPDATE necklace" +
-            " SET name=? WHERE id=?";
     private Connection connection;
 
     public JDBCNecklaceDao(Connection connection) {
@@ -102,7 +85,7 @@ public class JDBCNecklaceDao implements NecklaceDao {
 
     private void saveStoneToNecklace(Necklace necklace, PreciousStone stone) {
         try (PreparedStatement st = connection.prepareStatement(SAVE_STONE_TO_NECKLACE_QUERY)) {
-            PreparedStatement stones_to_necklace = connection.prepareStatement("SELECT * FROM stone_to_necklace " +
+            PreparedStatement stones_to_necklace = connection.prepareStatement(SELECT_JOIN_TABLE_QUERY + " " +
                     "WHERE stone_id=? AND necklace_id=?");
 
             stones_to_necklace.setInt(1, stone.getId());

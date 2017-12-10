@@ -8,6 +8,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static model.data.dao.util.DaoConstants.*;
+
 /**
  * JDBCPreciousStoneDao
  * created on 09.12.2017
@@ -26,8 +28,7 @@ public class JDBCPreciousStoneDao implements PreciousStoneDao {
     public List<PreciousStone> getAll() {
         List<PreciousStone> res = new ArrayList<>();
         try (Statement st = connection.createStatement()) {
-            ResultSet rs = st.executeQuery("SELECT id stone_id, name stone_name, price stone_price," +
-                    " color stone_color, transparency stone_transparency, weight stone_weight FROM precious_stone");
+            ResultSet rs = st.executeQuery(SELECT_STONES_QUERY);
 
             while (rs.next()) {
                 res.add(PreciousStoneMaper.mapFromResultSet(rs));
@@ -42,9 +43,7 @@ public class JDBCPreciousStoneDao implements PreciousStoneDao {
     @Override
     public PreciousStone getById(int id) {
         try (PreparedStatement st = connection.
-                prepareStatement("SELECT id stone_id, name stone_name, price stone_price, " +
-                        "color stone_color, transparency stone_transparency, weight stone_weight FROM precious_stone " +
-                        "WHERE id=?;")) {
+                prepareStatement(SELECT_STONE_BY_ID_QUERY)) {
             st.setInt(1, id);
 
             ResultSet rs = st.executeQuery();
@@ -59,8 +58,7 @@ public class JDBCPreciousStoneDao implements PreciousStoneDao {
     @Override
     public void insert(PreciousStone item) {
         try (PreparedStatement st = connection.
-                prepareStatement("INSERT INTO  precious_stone (name, price, color, transparency, weight) " +
-                        "VALUES (?, ?, ?, ?, ?)")) {
+                prepareStatement(INSERT_STONE_QUERY)) {
             st.setString(1, item.getName());
             st.setLong(2, item.getPrice());
             st.setInt(3, item.getColor().ordinal());
@@ -76,8 +74,7 @@ public class JDBCPreciousStoneDao implements PreciousStoneDao {
     @Override
     public void delete(PreciousStone item) {
         try (PreparedStatement st = connection.
-                prepareStatement("DELETE FROM  precious_stone " +
-                        "WHERE id=?")) {
+                prepareStatement(DELETE_STONE_QUERY)) {
             st.setInt(1, item.getId());
 
             st.execute();
@@ -89,8 +86,7 @@ public class JDBCPreciousStoneDao implements PreciousStoneDao {
     @Override
     public void update(PreciousStone item) {
         try (PreparedStatement st = connection.
-                prepareStatement("UPDATE  precious_stone " +
-                        " SET name=?, color=?, transparency=?, price=?, weight=? WHERE id=?")) {
+                prepareStatement(UPDATE_STONE_QUERY)) {
             st.setString(1, item.getName());
             st.setDouble(2, item.getTransparency());
             st.setLong(3, item.getPrice());
