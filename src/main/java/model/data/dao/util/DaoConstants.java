@@ -27,7 +27,7 @@ public interface DaoConstants {
             "WHERE id=?";
     String UPDATE_NECKLACE_QUERY = "UPDATE necklace" +
             " SET name=? WHERE id=?";
-    String SELECT_JOIN_TABLE_QUERY = "SELECT * FROM stone_to_necklace";
+    String SELECT_JOIN_TABLE_QUERY = "SELECT * FROM stone_to_necklace WHERE stone_id=? AND necklace_id=?";
 
 
     String SELECT_STONES_QUERY = "SELECT id stone_id, name stone_name, price stone_price," +
@@ -41,4 +41,6 @@ public interface DaoConstants {
             "WHERE id=?";
     String UPDATE_STONE_QUERY = "UPDATE  precious_stone " +
             " SET name=?, color=?, transparency=?, price=?, weight=? WHERE id=?";
+
+    String CONNECTION_POOL_CONTEXT_NAME = "java:comp/env/jdbc/stoneDB";
 }

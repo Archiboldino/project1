@@ -9,10 +9,10 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 
-import static util.Constants.*;
+import static model.data.dao.util.DaoConstants.CONNECTION_POOL_CONTEXT_NAME;
+
 
 /**
  * JDBCDaoFactory
@@ -22,6 +22,8 @@ import static util.Constants.*;
  * @version 1.0
  */
 public class JDBCDaoFactory extends DaoFactory {
+
+
     @Override
     public PreciousStoneDao createStoneDao() {
         return new JDBCPreciousStoneDao(getConnection());
@@ -35,7 +37,7 @@ public class JDBCDaoFactory extends DaoFactory {
     private Connection getConnection() {
         try {
             Context ctx = new InitialContext();
-            DataSource ds = (DataSource)ctx.lookup("java:comp/env/jdbc/stoneDB");
+            DataSource ds = (DataSource) ctx.lookup(CONNECTION_POOL_CONTEXT_NAME);
             return ds.getConnection();
         } catch (SQLException | NamingException e) {
             throw new RuntimeException(e);
