@@ -2,7 +2,6 @@ package util;
 
 import model.entity.Necklace;
 import model.entity.PreciousStone;
-import model.entity.PreciousStoneNecklace;
 
 import java.util.Comparator;
 import java.util.List;

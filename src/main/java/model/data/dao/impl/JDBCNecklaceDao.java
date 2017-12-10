@@ -92,7 +92,7 @@ public class JDBCNecklaceDao implements NecklaceDao {
             stones_to_necklace.setInt(2, necklace.getId());
 
             boolean isEmpty = !stones_to_necklace.executeQuery().next();
-            if(isEmpty) {
+            if (isEmpty) {
                 st.setInt(1, stone.getId());
                 st.setInt(2, necklace.getId());
                 st.execute();
