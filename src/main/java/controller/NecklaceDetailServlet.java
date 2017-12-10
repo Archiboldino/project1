@@ -1,6 +1,7 @@
 package controller;
 
 import model.entity.Necklace;
+import model.entity.PreciousStone;
 import service.NecklaceService;
 import service.StoneService;
 
@@ -41,8 +42,13 @@ public class NecklaceDetailServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int stoneId = Integer.parseInt(req.getParameter(STONE_ID_REQUEST_PARAMETER));
-        chosenNecklace.getPreciousStones().add(StoneService.getById(stoneId));
-        NecklaceService.save(chosenNecklace);
+
+        if (chosenNecklace.getPreciousStones().stream(). // Must be in service ?
+                mapToInt(PreciousStone::getId).noneMatch(id -> id == stoneId)) {
+            chosenNecklace.getPreciousStones().add(StoneService.getById(stoneId));
+            System.out.println(StoneService.getById(stoneId).getId());
+            NecklaceService.save(chosenNecklace);
+        }
 
         resp.sendRedirect(NECKLACE_DETAIL_URL + necklaceId);
     }
