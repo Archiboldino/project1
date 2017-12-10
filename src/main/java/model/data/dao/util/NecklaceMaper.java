@@ -26,8 +26,8 @@ public class NecklaceMaper {
     }
 
     public static void makeUniqueStones(Necklace necklace, PreciousStone stone, Map<Integer, PreciousStone> stones, Map<Integer, Necklace> necklaces) {
+        necklaces.putIfAbsent(necklace.getId(), necklace);
         if (stone.getId() != 0) {
-            necklaces.putIfAbsent(necklace.getId(), necklace);
             stones.putIfAbsent(stone.getId(), stone);
             stone = stones.get(stone.getId());
             necklace = necklaces.get(necklace.getId());
