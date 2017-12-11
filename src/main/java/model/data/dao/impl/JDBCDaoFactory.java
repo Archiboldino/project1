@@ -4,10 +4,6 @@ import model.data.dao.DaoFactory;
 import model.data.dao.NecklaceDao;
 import model.data.dao.PreciousStoneDao;
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -34,10 +30,9 @@ public class JDBCDaoFactory extends DaoFactory {
 
     private Connection getConnection() {
         try {
-            Context ctx = new InitialContext();
-            DataSource ds = (DataSource)ctx.lookup("java:comp/env/jdbc/stoneDB");
-            return ds.getConnection();
-        } catch (SQLException | NamingException e) {
+            Class.forName("com.mysql.jdbc.Driver");
+            return DriverManager.getConnection(DATABASE_PATH, DATABASE_USER, DATABASE_PASS);
+        } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
     }
