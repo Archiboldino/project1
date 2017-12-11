@@ -5,7 +5,7 @@
 <%@ page import="model.entity.Necklace" %>
 <%@ page import="model.entity.Stone" %>
 <%@ page import="static util.Constants.STONES_LIST_ATTRIBUTE_KEY" %>
-<%@ page import="model.entity.util.NecklaceUtil" %>
+<%@ page import="util.NecklaceUtil" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ResourceBundle" %>
 <%@ page import="static util.Constants.*" %>

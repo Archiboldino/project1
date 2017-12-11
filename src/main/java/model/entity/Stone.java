@@ -19,7 +19,7 @@ public abstract class Stone {
     /**
      * Basic constructor using builder to be used in child classes
      *
-     * @param builder builder filled with data
+     * @param builder
      */
     protected Stone(Builder builder) {
         this.weight = builder.weight;
@@ -80,26 +80,24 @@ public abstract class Stone {
         protected Color color;
 
 
-        public abstract T getThis();
-
         public T weight(double weight) {
             this.weight = weight;
-            return getThis();
+            return (T) this;
         }
 
         public T price(long price) {
             this.price = price;
-            return getThis();
+            return (T) this;
         }
 
         public T name(String name) {
             this.name = name;
-            return getThis();
+            return (T) this;
         }
 
         public T color(Color color) {
             this.color = color;
-            return getThis();
+            return (T) this;
         }
 
         public abstract Stone build();

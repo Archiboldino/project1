@@ -43,10 +43,10 @@ public class NecklaceDetailServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int stoneId = Integer.parseInt(req.getParameter(STONE_ID_REQUEST_PARAMETER));
 
-        if (chosenNecklace.getPreciousStones().size() != 0 &&
-                chosenNecklace.getPreciousStones().stream(). // Must be in service ?
+        if (chosenNecklace.getPreciousStones().stream(). // Must be in service ?
                 mapToInt(PreciousStone::getId).noneMatch(id -> id == stoneId)) {
             chosenNecklace.getPreciousStones().add(StoneService.getById(stoneId));
+            System.out.println(StoneService.getById(stoneId).getId());
             NecklaceService.save(chosenNecklace);
         }
 

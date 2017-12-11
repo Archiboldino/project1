@@ -1,4 +1,4 @@
-package model.entity.util;
+package util;
 
 import model.entity.Necklace;
 import model.entity.PreciousStone;

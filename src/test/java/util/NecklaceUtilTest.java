@@ -2,7 +2,6 @@ package util;
 
 import model.entity.Necklace;
 import model.entity.PreciousStone;
-import model.entity.util.NecklaceUtil;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

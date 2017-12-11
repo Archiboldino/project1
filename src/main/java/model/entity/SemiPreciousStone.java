@@ -34,11 +34,6 @@ public class SemiPreciousStone extends Stone {
 
         public Builder hardness(double hardness) {
             this.hardness = hardness;
-            return getThis();
-        }
-
-        @Override
-        public Builder getThis() {
             return this;
         }
 
