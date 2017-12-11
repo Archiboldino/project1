@@ -60,6 +60,11 @@ public class PreciousStone extends Stone {
         }
 
         @Override
+        public Builder getThis() {
+            return this;
+        }
+
+        @Override
         public PreciousStone build() {
             return new PreciousStone(this);
         }

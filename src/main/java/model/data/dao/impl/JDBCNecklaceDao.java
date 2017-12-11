@@ -1,6 +1,7 @@
 package model.data.dao.impl;
 
 import model.data.dao.NecklaceDao;
+import model.data.dao.util.DaoUtil;
 import model.data.dao.util.NecklaceMaper;
 import model.data.dao.util.PreciousStoneMaper;
 import model.entity.Necklace;
@@ -39,7 +40,6 @@ public class JDBCNecklaceDao implements NecklaceDao {
                 PreciousStone stone = PreciousStoneMaper.mapFromResultSet(rs);
                 NecklaceMaper.makeUniqueStones(necklace, stone, stones, necklaces);
             }
-            connection.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -61,12 +61,11 @@ public class JDBCNecklaceDao implements NecklaceDao {
                 PreciousStone stone = PreciousStoneMaper.mapFromResultSet(rs);
                 NecklaceMaper.makeUniqueStones(necklace, stone, stones, necklaces);
             }
-            connection.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 
-        return necklaces.values().stream().findFirst().get();
+        return new ArrayList<>(necklaces.values()).get(0);
     }
 
     @Override
@@ -80,7 +79,6 @@ public class JDBCNecklaceDao implements NecklaceDao {
                 System.out.println(s.getId());
                 saveStoneToNecklace(item, s);
             }
-            connection.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -100,7 +98,6 @@ public class JDBCNecklaceDao implements NecklaceDao {
                 st.execute();
             }
 
-            connection.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -113,7 +110,7 @@ public class JDBCNecklaceDao implements NecklaceDao {
             st.setInt(1, item.getId());
 
             st.execute();
-            connection.close();
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -126,12 +123,11 @@ public class JDBCNecklaceDao implements NecklaceDao {
             st.setString(1, item.getName());
             st.setInt(2, item.getId());
 
+            st.execute();
             for (PreciousStone s : item.getPreciousStones()) {
                 saveStoneToNecklace(item, s);
             }
 
-            st.execute();
-            connection.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
