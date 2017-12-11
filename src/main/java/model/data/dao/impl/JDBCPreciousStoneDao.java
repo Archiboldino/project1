@@ -33,7 +33,6 @@ public class JDBCPreciousStoneDao implements PreciousStoneDao {
             while (rs.next()) {
                 res.add(PreciousStoneMaper.mapFromResultSet(rs));
             }
-            connection.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -50,7 +49,6 @@ public class JDBCPreciousStoneDao implements PreciousStoneDao {
             ResultSet rs = st.executeQuery();
 
             rs.next();
-            connection.close();
             return PreciousStoneMaper.mapFromResultSet(rs);
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -68,7 +66,6 @@ public class JDBCPreciousStoneDao implements PreciousStoneDao {
             st.setDouble(5, item.getWeight());
 
             st.execute();
-            connection.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -81,7 +78,6 @@ public class JDBCPreciousStoneDao implements PreciousStoneDao {
             st.setInt(1, item.getId());
 
             st.execute();
-            connection.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -98,7 +94,6 @@ public class JDBCPreciousStoneDao implements PreciousStoneDao {
             st.setInt(4, item.getId());
 
             st.execute();
-            connection.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

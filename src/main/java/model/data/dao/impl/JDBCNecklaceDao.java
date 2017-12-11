@@ -39,7 +39,6 @@ public class JDBCNecklaceDao implements NecklaceDao {
                 PreciousStone stone = PreciousStoneMaper.mapFromResultSet(rs);
                 NecklaceMaper.makeUniqueStones(necklace, stone, stones, necklaces);
             }
-            connection.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -61,7 +60,6 @@ public class JDBCNecklaceDao implements NecklaceDao {
                 PreciousStone stone = PreciousStoneMaper.mapFromResultSet(rs);
                 NecklaceMaper.makeUniqueStones(necklace, stone, stones, necklaces);
             }
-            connection.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -80,7 +78,6 @@ public class JDBCNecklaceDao implements NecklaceDao {
                 System.out.println(s.getId());
                 saveStoneToNecklace(item, s);
             }
-            connection.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -88,7 +85,8 @@ public class JDBCNecklaceDao implements NecklaceDao {
 
     private void saveStoneToNecklace(Necklace necklace, PreciousStone stone) {
         try (PreparedStatement st = connection.prepareStatement(SAVE_STONE_TO_NECKLACE_QUERY)) {
-            PreparedStatement stones_to_necklace = connection.prepareStatement(SELECT_JOIN_TABLE_QUERY);
+            PreparedStatement stones_to_necklace = connection.prepareStatement(SELECT_JOIN_TABLE_QUERY + " " +
+                    "WHERE stone_id=? AND necklace_id=?");
 
             stones_to_necklace.setInt(1, stone.getId());
             stones_to_necklace.setInt(2, necklace.getId());
@@ -100,7 +98,6 @@ public class JDBCNecklaceDao implements NecklaceDao {
                 st.execute();
             }
 
-            connection.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -113,7 +110,6 @@ public class JDBCNecklaceDao implements NecklaceDao {
             st.setInt(1, item.getId());
 
             st.execute();
-            connection.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -131,7 +127,6 @@ public class JDBCNecklaceDao implements NecklaceDao {
             }
 
             st.execute();
-            connection.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
